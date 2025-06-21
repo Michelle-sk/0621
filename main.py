@@ -46,3 +46,24 @@ selected_mbti = st.selectbox("👇 여기에 너의 MBTI를 골라줘!", mbti_ty
 # 🌈 직업 추천 + 설명 데이터
 mbti_jobs = {
     "ISTJ": [("📊 회계사", "숫자에 강하고 꼼꼼한 성격을 살려 기업의 재무를 관리하는 직업이에요."),
+             ("⚖️ 판사", "공정함과 책임감을 바탕으로 사회 정의를 실현하는 직업이에요."),
+             ("🏫 교사", "체계적이고 책임감 있게 지식을 전달하는 교육 전문가예요.")],
+
+    "ENFP": [("💡 창업가", "창의적인 아이디어로 새로운 사업을 시작하는 도전적인 직업이에요."),
+             ("🎤 방송작가", "아이디어와 글쓰기를 통해 방송 콘텐츠를 만드는 창의적인 직업이에요."),
+             ("🎉 이벤트플래너", "행사를 기획하고 진행하는 에너지 넘치는 직업이에요.")],
+
+    "ISFP": [("🎶 뮤지션", "감성을 음악으로 표현하는 예술적인 직업이에요."),
+             ("🎨 패션디자이너", "감각적인 스타일을 옷으로 표현하는 창의적인 직업이에요."),
+             ("📸 포토그래퍼", "순간을 포착해 감정을 전하는 사진 예술가예요.")],
+
+    # (추가 MBTI 유형은 동일한 방식으로 확장 가능)
+}
+
+# 🌟 직업 추천 결과 출력
+if selected_mbti in mbti_jobs:
+    st.markdown(f'<div class="job-box"><h3>✨ {selected_mbti} 유형에게 추천하는 직업은...</h3>', unsafe_allow_html=True)
+    for job, description in mbti_jobs[selected_mbti]:
+        with st.expander(job):
+            st.write(description)
+    st.markdown('</div>', unsafe_allow_html=True)
